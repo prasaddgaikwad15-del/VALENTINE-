@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Dev Babu 💖</title>
+
 <style>
 body{
     margin:0;
@@ -12,20 +14,26 @@ body{
     align-items:center;
     background:linear-gradient(135deg,#ffd1dc,#ffe6f0);
     font-family: Arial, sans-serif;
+    overflow:hidden;
 }
 
 .card{
-    width:320px;
-    background:white;
-    padding:30px;
-    border-radius:20px;
     text-align:center;
+    background:white;
+    padding:35px 25px;
+    border-radius:20px;
     box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    width:320px;
     position:relative;
 }
 
+h1{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
 button{
-    padding:12px 25px;
+    padding:12px 22px;
     border:none;
     border-radius:10px;
     font-size:16px;
@@ -36,21 +44,22 @@ button{
 #yes{
     background:#ff4d6d;
     color:white;
-    bottom:30px;
-    left:40px;
+    left:55px;
+    top:130px;
 }
 
 #no{
     background:#ddd;
-    bottom:30px;
-    right:40px;
+    left:185px;
+    top:130px;
 }
 </style>
 </head>
+
 <body>
 
 <div class="card" id="card">
-    <h2>Dev babu 😘<br>Will you be my Valentine? 💖</h2>
+    <h1>Dev babu 😘<br>Will you be my Valentine? 💖</h1>
 
     <button id="yes">Yes 💘</button>
     <button id="no">No 🙈</button>
@@ -64,20 +73,24 @@ function moveButton(){
     const rect = card.getBoundingClientRect();
     const x = Math.random() * (rect.width - 80);
     const y = Math.random() * (rect.height - 80);
+
     noBtn.style.left = x + "px";
     noBtn.style.top = y + "px";
 }
 
+// Mobile touch
 noBtn.addEventListener("touchstart", function(e){
     e.preventDefault();
     moveButton();
 });
 
+// Desktop hover
 noBtn.addEventListener("mouseover", moveButton);
 
-document.getElementById("yes").onclick = function(){
+// Yes button goes to next page
+document.getElementById("yes").addEventListener("click", function(){
     window.location.href = "yes.html";
-}
+});
 </script>
 
 </body>
